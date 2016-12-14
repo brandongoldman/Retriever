@@ -19,7 +19,7 @@ window.onload = function()
   });
 };
 
-// Listen to messages from the send_links.js script and write to popout.html
+// show links on page
 linksOnPage = [];
 chrome.extension.onRequest.addListener(function(links) 
 {
@@ -60,7 +60,7 @@ function checkIfFile()
   return linksThatAreFiles;
 }
 
-// Display all visible links in the popup
+// show user downloadable files found on page
 function showLinks() 
 {
   var downloadableFiles = document.getElementById('links');
@@ -85,6 +85,7 @@ function showLinks()
     col1.innerText = linksTextArray[linksTextArray.length - 1];
     col1.style.whiteSpace = 'nowrap';
 
+    // allow user to deselect file
     col1.onclick = function() 
     {
       checkbox.checked = !checkbox.checked;
@@ -96,12 +97,13 @@ function showLinks()
   }
 }
 
-// Download all visible checked links.
+// download only files checked by user
 function download() 
 {
   var numOfDownloads = 0;
   for (var i = 0; i < linksThatAreFiles.length; ++i) 
   {
+    // if file is checked
     if (document.getElementById('check' + i).checked) 
     {
       numOfDownloads = numOfDownloads + 1;
