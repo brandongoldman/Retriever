@@ -52,7 +52,8 @@ function checkIfFile()
   {
     if ((linksOnPage[i].substr(linksOnPage[i].length - 4) == '.pdf') ||
         (linksOnPage[i].substr(linksOnPage[i].length - 4) == '.doc') ||
-        (linksOnPage[i].substr(linksOnPage[i].length - 5) == '.docx')) {
+        (linksOnPage[i].substr(linksOnPage[i].length - 5) == '.docx')) 
+    {
           linksThatAreFiles.push(linksOnPage[i]);
     }
   }
@@ -62,10 +63,10 @@ function checkIfFile()
 // Display all visible links in the popup
 function showLinks() 
 {
-  var linksTable = document.getElementById('links');
-  while (linksTable.children.length > 1) 
+  var downloadableFiles = document.getElementById('links');
+  while (downloadableFiles.children.length > 1) 
   {
-    linksTable.removeChild(linksTable.children[linksTable.children.length - 1])
+    downloadableFiles.removeChild(downloadableFiles.children[downloadableFiles.children.length - 1])
   }
 
   for (var i = 0; i < linksThatAreFiles.length; ++i) 
@@ -74,20 +75,24 @@ function showLinks()
     var col0 = document.createElement('td');
     var col1 = document.createElement('td');
     var checkbox = document.createElement('input');
+
     checkbox.checked = true;
     checkbox.type = 'checkbox';
     checkbox.id = 'check' + i;
+
     col0.appendChild(checkbox);
     linksTextArray = linksThatAreFiles[i].split("/");
     col1.innerText = linksTextArray[linksTextArray.length - 1];
     col1.style.whiteSpace = 'nowrap';
+
     col1.onclick = function() 
     {
       checkbox.checked = !checkbox.checked;
     }
+
     row.appendChild(col0);
     row.appendChild(col1);
-    linksTable.appendChild(row);
+    downloadableFiles.appendChild(row);
   }
 }
 
