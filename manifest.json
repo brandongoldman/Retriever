@@ -3,7 +3,7 @@
 	"description": "View and download all the files on a webpage (.pdf or .doc/docx) with a single click.",
 	"version": "1.0",
 	"manifest_version": 2,
-	"browser_action": {"default_title": "Retriever",
+	"browser_action": {"default_title":  "Retriever",
 										 "default_popup": "index.html",
 										 "default_icon": "/images/icon.png"},
 	"permissions": ["downloads", "<all_urls>"]
