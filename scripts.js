@@ -53,7 +53,7 @@ function checkIfFile()
     if ((linksOnPage[i].substr(linksOnPage[i].length - 4) == '.pdf') ||
         (linksOnPage[i].substr(linksOnPage[i].length - 4) == '.doc') ||
         (linksOnPage[i].substr(linksOnPage[i].length - 5) == '.docx') ||
-        (linksOnPage[i].substr(linksOnPage[i].length - 5) == '.vhd'))) 
+        (linksOnPage[i].substr(linksOnPage[i].length - 4) == '.vhd'))) 
     {
           linksThatAreFiles.push(linksOnPage[i]);
     }
